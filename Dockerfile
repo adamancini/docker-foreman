@@ -37,6 +37,10 @@ RUN chmod 755 /usr/local/bin/first_run.sh
 COPY install_foreman.sh /opt/install_foreman.sh
 RUN chmod 755 /opt/install_foreman.sh
 
+# AND copy my customized answers file
+COPY foreman-answers.yml /etc/foreman-installer/scenarios.d/foreman-answers.yaml
+RUN chmod 644 /etc/foreman-installer/scenarios.d/foreman-answers.yaml
+
 # Perform the installation
 RUN bash /opt/install_foreman.sh
 RUN rm -f /opt/install_foreman.sh # Don't need it anymore

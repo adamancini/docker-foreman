@@ -1,0 +1,421 @@
+--- 
+  foreman: 
+    foreman_url: "https://foreman.company.com"
+    puppetrun: false
+    unattended: true
+    authentication: true
+    passenger: true
+    passenger_ruby: /usr/bin/foreman-ruby
+    passenger_ruby_package: 
+    plugin_prefix: ruby-foreman-
+    use_vhost: true
+    servername: foreman.company.com
+    serveraliases: 
+      - foreman
+    ssl: true
+    custom_repo: true
+    repo: stable
+    configure_epel_repo: false
+    configure_scl_repo: false
+    configure_brightbox_repo: false
+    selinux: 
+    gpgcheck: true
+    version: present
+    db_manage: true
+    db_type: postgresql
+    db_adapter: 
+    db_host: 
+    db_port: 
+    db_database: 
+    db_username: foreman
+    db_password: muxZVD7VFBfdbc7QTqiFy59JVvXfxLgM
+    db_sslmode: 
+    db_pool: 5
+    apipie_task: "apipie:cache:index"
+    app_root: /usr/share/foreman
+    manage_user: true
+    user: foreman
+    group: foreman
+    user_groups: 
+      - puppet
+    environment: production
+    puppet_home: /var/lib/puppet
+    puppet_ssldir: /var/lib/puppet/ssl
+    locations_enabled: false
+    organizations_enabled: false
+    passenger_interface: 
+    server_ssl_ca: /var/lib/puppet/ssl/certs/ca.pem
+    server_ssl_chain: /var/lib/puppet/ssl/certs/ca.pem
+    server_ssl_cert: /var/lib/puppet/ssl/certs/foreman.company.com.pem
+    server_ssl_certs_dir: ""
+    server_ssl_key: /var/lib/puppet/ssl/private_keys/foreman.company.com.pem
+    server_ssl_crl: /var/lib/puppet/ssl/crl.pem
+    keepalive: true
+    max_keepalive_requests: 100
+    keepalive_timeout: 5
+    oauth_active: true
+    oauth_map_users: false
+    oauth_consumer_key: "6GRkMWxwT5vQFv2fU2NvK4v4TLLQAopY"
+    oauth_consumer_secret: w3uEpu7KonkmeVCttHFkKJfZUCEtx3TY
+    passenger_prestart: true
+    passenger_min_instances: "1"
+    passenger_start_timeout: "600"
+    admin_username: admin
+    admin_password: mhqePY7iaiJiRyUp
+    admin_first_name: 
+    admin_last_name: 
+    admin_email: 
+    initial_organization: 
+    initial_location: 
+    ipa_authentication: false
+    http_keytab: /etc/httpd/conf/http.keytab
+    pam_service: foreman
+    ipa_manage_sssd: true
+    websockets_encrypt: true
+    websockets_ssl_key: /var/lib/puppet/ssl/private_keys/foreman.company.com.pem
+    websockets_ssl_cert: /var/lib/puppet/ssl/certs/foreman.company.com.pem
+    logging_level: info
+    loggers: {}
+    email_conf: email.yaml
+    email_source: email.yaml.erb
+    email_delivery_method: 
+    email_smtp_address: 
+    email_smtp_port: 25
+    email_smtp_domain: 
+    email_smtp_authentication: none
+    email_smtp_user_name: 
+    email_smtp_password: 
+  "foreman::cli": 
+    foreman_url: 
+    manage_root_config: true
+    username: 
+    password: 
+    refresh_cache: false
+    request_timeout: 120
+  foreman_proxy: 
+    repo: stable
+    gpgcheck: true
+    custom_repo: true
+    version: present
+    ensure_packages_version: present
+    plugin_version: installed
+    bind_host: "*"
+    port: 
+    http_port: 8000
+    ssl_port: 8443
+    dir: /usr/share/foreman-proxy
+    user: foreman-proxy
+    log: /var/log/foreman-proxy/proxy.log
+    log_level: ERROR
+    log_buffer: 2000
+    log_buffer_errors: 1000
+    http: false
+    ssl: true
+    ssl_ca: /var/lib/puppet/ssl/certs/ca.pem
+    ssl_cert: /var/lib/puppet/ssl/certs/foreman.company.com.pem
+    ssl_key: /var/lib/puppet/ssl/private_keys/foreman.company.com.pem
+    foreman_ssl_ca: 
+    foreman_ssl_cert: 
+    foreman_ssl_key: 
+    trusted_hosts: 
+      - foreman.company.com
+    manage_sudoersd: true
+    use_sudoersd: true
+    puppetca: true
+    puppetca_listen_on: https
+    ssldir: /var/lib/puppet/ssl
+    puppetdir: /etc/puppet
+    autosign_location: /etc/puppet/autosign.conf
+    puppetca_cmd: "/usr/bin/puppet cert"
+    puppet_group: puppet
+    puppetrun: true
+    puppetrun_listen_on: https
+    puppetrun_cmd: "/usr/bin/puppet kick"
+    puppetrun_provider: 
+    customrun_cmd: /bin/false
+    customrun_args: "-ay -f -s"
+    puppetssh_sudo: false
+    puppetssh_command: "/usr/bin/puppet agent --onetime --no-usecacheonfailure"
+    puppetssh_user: root
+    puppetssh_keyfile: /etc/foreman-proxy/id_rsa
+    puppetssh_wait: false
+    salt_puppetrun_cmd: puppet.run
+    puppet_user: root
+    puppet_url: "https://foreman.company.com:8140"
+    puppet_ssl_ca: /var/lib/puppet/ssl/certs/ca.pem
+    puppet_ssl_cert: /var/lib/puppet/ssl/certs/foreman.company.com.pem
+    puppet_ssl_key: /var/lib/puppet/ssl/private_keys/foreman.company.com.pem
+    puppet_use_environment_api: 
+    templates: false
+    templates_listen_on: both
+    template_url: "http://foreman.company.com:8000"
+    logs: false
+    logs_listen_on: https
+    tftp: true
+    tftp_listen_on: https
+    tftp_manage_wget: true
+    tftp_syslinux_root: 
+    tftp_syslinux_files: 
+    tftp_syslinux_filenames: 
+      - /usr/lib/syslinux/chain.c32
+      - /usr/lib/syslinux/mboot.c32
+      - /usr/lib/syslinux/menu.c32
+      - /usr/lib/syslinux/memdisk
+      - /usr/lib/syslinux/pxelinux.0
+    tftp_root: /var/lib/tftpboot
+    tftp_dirs: 
+      - /var/lib/tftpboot/pxelinux.cfg
+      - /var/lib/tftpboot/boot
+      - /var/lib/tftpboot/ztp.cfg
+      - /var/lib/tftpboot/poap.cfg
+    tftp_servername: 
+    dhcp: false
+    dhcp_split_config_files: true
+    dhcp_listen_on: https
+    dhcp_managed: true
+    dhcp_provider: isc
+    dhcp_vendor: 
+    dhcp_option_domain: 
+      - azulcasa.net
+    dhcp_interface: eth0
+    dhcp_gateway: "192.168.100.1"
+    dhcp_range: false
+    dhcp_nameservers: default
+    dhcp_server: "127.0.0.1"
+    dhcp_config: /etc/dhcp/dhcpd.conf
+    dhcp_leases: /var/lib/dhcp/dhcpd.leases
+    dhcp_key_name: 
+    dhcp_key_secret: 
+    dhcp_omapi_port: 7911
+    dns: false
+    dns_split_config_files: true
+    dns_listen_on: https
+    dns_managed: true
+    dns_provider: nsupdate
+    dns_interface: eth0
+    dns_zone: azulcasa.net
+    dns_reverse: "100.168.192.in-addr.arpa"
+    dns_server: "127.0.0.1"
+    dns_ttl: "86400"
+    dns_tsig_keytab: /etc/foreman-proxy/dns.keytab
+    dns_tsig_principal: "foremanproxy/foreman.company.com@AZULCASA.NET"
+    dns_forwarders: []
+    virsh_network: default
+    bmc: false
+    bmc_listen_on: https
+    bmc_default_provider: ipmitool
+    realm: false
+    realm_listen_on: https
+    realm_provider: freeipa
+    realm_keytab: /etc/foreman-proxy/freeipa.keytab
+    realm_principal: "realm-proxy@EXAMPLE.COM"
+    freeipa_remove_dns: true
+    keyfile: /etc/bind/rndc.key
+    register_in_foreman: true
+    foreman_base_url: "https://foreman.company.com"
+    registered_name: foreman.company.com
+    registered_proxy_url: 
+    oauth_effective_user: admin
+    oauth_consumer_key: "6GRkMWxwT5vQFv2fU2NvK4v4TLLQAopY"
+    oauth_consumer_secret: w3uEpu7KonkmeVCttHFkKJfZUCEtx3TY
+    puppet_use_cache: 
+    puppet_cache_location: /var/cache/foreman-proxy
+  puppet: 
+    version: present
+    user: puppet
+    group: puppet
+    dir: /etc/puppet
+    codedir: /etc/puppet
+    vardir: /var/lib/puppet
+    logdir: /var/log/puppet
+    rundir: /var/run/puppet
+    ssldir: /var/lib/puppet/ssl
+    sharedir: /usr/share/puppet
+    manage_packages: true
+    dir_owner: puppet
+    dir_group: puppet
+    package_provider: 
+    package_source: 
+    port: 8140
+    listen: false
+    listen_to: []
+    pluginsync: true
+    splay: false
+    splaylimit: "1800"
+    autosign: "$confdir/autosign.conf { mode = 664 }"
+    runinterval: 1800
+    usecacheonfailure: true
+    runmode: service
+    unavailable_runmodes: 
+      - systemd.timer
+    cron_cmd: 
+    systemd_cmd: 
+    agent_noop: false
+    show_diff: false
+    module_repository: 
+    configtimeout: 120
+    ca_server: 
+    ca_port: 
+    prerun_command: 
+    postrun_command: 
+    dns_alt_names: []
+    use_srv_records: false
+    srv_domain: azulcasa.net
+    pluginsource: "puppet:///plugins"
+    pluginfactsource: "puppet:///pluginfacts"
+    additional_settings: {}
+    agent_additional_settings: {}
+    agent_restart_command: "/usr/sbin/service puppet reload"
+    classfile: "$statedir/classes.txt"
+    hiera_config: "$confdir/hiera.yaml"
+    main_template: puppet/puppet.conf.erb
+    agent_template: puppet/agent/puppet.conf.erb
+    auth_template: puppet/auth.conf.erb
+    nsauth_template: puppet/namespaceauth.conf.erb
+    allow_any_crl_auth: false
+    auth_allowed: 
+      - "$1"
+    client_package: 
+      - puppet-common
+      - puppet
+    agent: true
+    remove_lock: true
+    puppetmaster: 
+    systemd_unit_name: puppet-run
+    service_name: puppet
+    syslogfacility: 
+    environment: production
+    server: true
+    server_admin_api_whitelist: 
+      - "127.0.0.1"
+      - "::1"
+      - "172.17.0.2"
+    server_user: puppet
+    server_group: puppet
+    server_dir: /etc/puppet
+    server_ip: "0.0.0.0"
+    server_port: 8140
+    server_ca: true
+    server_ca_auth_required: true
+    server_ca_client_whitelist: 
+      - "127.0.0.1"
+      - "::1"
+      - "172.17.0.2"
+    server_http: false
+    server_http_port: 8139
+    server_http_allow: []
+    server_reports: foreman
+    server_implementation: master
+    server_passenger: true
+    server_puppetserver_dir: /etc/puppetserver
+    server_service_fallback: true
+    server_passenger_max_pool: 12
+    server_httpd_service: httpd
+    server_external_nodes: /etc/puppet/node.rb
+    server_template: puppet/server/puppet.conf.erb
+    server_cipher_suites: 
+      - TLS_RSA_WITH_AES_256_CBC_SHA256
+      - TLS_RSA_WITH_AES_256_CBC_SHA
+      - TLS_RSA_WITH_AES_128_CBC_SHA256
+      - TLS_RSA_WITH_AES_128_CBC_SHA
+    server_config_version: 
+    server_connect_timeout: 120000
+    server_git_repo: false
+    server_dynamic_environments: false
+    server_directory_environments: false
+    server_default_manifest: false
+    server_default_manifest_path: /etc/puppet/manifests/default_manifest.pp
+    server_default_manifest_content: ""
+    server_enable_ruby_profiler: false
+    server_environments: 
+      - development
+      - production
+    server_environments_owner: puppet
+    server_environments_group: 
+    server_environments_mode: "0755"
+    server_envs_dir: /etc/puppet/environments
+    server_manifest_path: /etc/puppet/manifests
+    server_common_modules_path: 
+      - /etc/puppet/environments/common
+      - /etc/puppet/modules
+      - /usr/share/puppet/modules
+    server_git_repo_mode: "0755"
+    server_git_repo_path: /var/lib/puppet/puppet.git
+    server_git_repo_group: puppet
+    server_git_repo_user: puppet
+    server_git_branch_map: {}
+    server_idle_timeout: 1200000
+    server_post_hook_content: puppet/server/post-receive.erb
+    server_post_hook_name: post-receive
+    server_storeconfigs_backend: 
+    server_app_root: /etc/puppet/rack
+    server_ruby_load_paths: []
+    server_ssl_dir: /var/lib/puppet/ssl
+    server_ssl_dir_manage: true
+    server_ssl_protocols: 
+      - TLSv1.2
+    server_package: 
+    server_version: 
+    server_certname: d3659c5e113e.azulcasa.net
+    server_enc_api: v2
+    server_report_api: v2
+    server_request_timeout: 60
+    server_ca_proxy: 
+    server_strict_variables: false
+    server_additional_settings: {}
+    server_rack_arguments: []
+    server_foreman: true
+    server_foreman_url: "https://foreman.company.com"
+    server_foreman_ssl_ca: 
+    server_foreman_ssl_cert: 
+    server_foreman_ssl_key: 
+    server_facts: true
+    server_puppet_basedir: 
+    server_puppetdb_host: 
+    server_puppetdb_port: 8081
+    server_puppetdb_swf: false
+    server_parser: current
+    server_environment_timeout: 
+    server_jvm_java_bin: /usr/bin/java
+    server_jvm_config: /etc/default/puppetserver
+    server_jvm_min_heap_size: "2G"
+    server_jvm_max_heap_size: "2G"
+    server_jvm_extra_args: "-XX:MaxPermSize=256m"
+    server_lenses_dir: /usr/share/augeas/lenses
+    server_jruby_gem_home: /var/lib/puppet/jruby-gems
+    server_max_active_instances: 4
+  "foreman::plugin::ansible": false
+  "foreman::plugin::bootdisk": false
+  "foreman::plugin::chef": false
+  "foreman::plugin::cockpit": false
+  "foreman::plugin::default_hostgroup": false
+  "foreman::plugin::dhcp_browser": false
+  "foreman::plugin::digitalocean": false
+  "foreman::plugin::discovery": false
+  "foreman::plugin::docker": false
+  "foreman::plugin::hooks": false
+  "foreman::plugin::memcache": false
+  "foreman::plugin::openscap": false
+  "foreman::plugin::ovirt_provision": false
+  "foreman::plugin::puppetdb": false
+  "foreman::plugin::remote_execution": false
+  "foreman::plugin::salt": false
+  "foreman::plugin::setup": {}
+  "foreman::plugin::tasks": false
+  "foreman::plugin::templates": false
+  "foreman::compute::ec2": false
+  "foreman::compute::gce": false
+  "foreman::compute::libvirt": false
+  "foreman::compute::openstack": false
+  "foreman::compute::ovirt": false
+  "foreman::compute::rackspace": false
+  "foreman::compute::vmware": false
+  "foreman_proxy::plugin::abrt": false
+  "foreman_proxy::plugin::chef": false
+  "foreman_proxy::plugin::discovery": false
+  "foreman_proxy::plugin::dns::powerdns": false
+  "foreman_proxy::plugin::dynflow": false
+  "foreman_proxy::plugin::openscap": false
+  "foreman_proxy::plugin::pulp": false
+  "foreman_proxy::plugin::remote_execution::ssh": false
+  "foreman_proxy::plugin::salt": false
